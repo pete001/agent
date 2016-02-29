@@ -9,7 +9,7 @@ class DeviceDetectorAdaptor extends AbstractDomain
 {
 	protected $domain;
 
-	public function __construct($agent, $refs)
+	public function __construct($agent, Array $refs)
 	{
 		$this->domain = new DeviceDetector($agent);
 		$this->domain->parse();

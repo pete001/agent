@@ -9,7 +9,7 @@ abstract class AbstractDomain implements DomainInterface
 
 	protected $map;
 
-	public function __construct($refs)
+	public function __construct(Array $refs)
 	{
 		$this->map = $refs;
 	}
