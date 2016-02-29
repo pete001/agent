@@ -27,4 +27,6 @@ abstract class AbstractDomain implements DomainInterface
 			? $this->map[self::UNKNOWN]
 			: 0;
 	}
+
+	abstract public function getDomain();
 }

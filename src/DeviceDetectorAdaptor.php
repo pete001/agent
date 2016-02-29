@@ -43,4 +43,24 @@ class DeviceDetectorAdaptor extends AbstractDomain
 			? $this->mapper('Bot')
 			: false;
 	}
+
+	public function getDomain()
+	{
+		if ($vDomain = $this->isMobileApp())
+		{
+			return $vDomain;
+		}
+		else if ($vDomain = $this->isMobile())
+		{
+			return $vDomain;
+		}
+		else if ($vDomain = $this->isDesktop())
+		{
+			return $vDomain;
+		}
+		else
+		{
+			return $this->unknown();
+		}
+	}
 }

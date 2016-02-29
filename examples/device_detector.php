@@ -14,5 +14,6 @@ print_r([
 	$domain->isDesktop(),
 	$domain->isMobile(),
 	$domain->isMobileApp(),
-	$domain->isBot()
+	$domain->isBot(),
+	$domain->getDomain()
 ]);
