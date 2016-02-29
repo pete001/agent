@@ -1,0 +1,24 @@
+{
+    "name": "pete001/agent",
+    "description": "Agent decoding",
+    "authors": [
+        {
+            "name": "Pete Cheyne",
+            "email": "pete.cheyne@gmail.com"
+        }
+    ],
+    "require": {
+        "php": ">=5.5.0",
+        "piwik/device-detector": "^3.5"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "~4.0",
+        "mockery/mockery": "^0.9.4"
+    },
+    "autoload": {
+        "psr-4": {
+            "Pete001\\Agent\\": "src/"
+        }
+    },
+    "license": "MIT"
+}
