@@ -15,4 +15,32 @@ class DeviceDetectorAdaptor extends AbstractDomain
 		$this->domain->parse();
 		parent::__construct($refs);
 	}
+
+	public function isDesktop()
+	{
+		return $this->domain->isDesktop()
+			? $this->mapper('Desktop')
+			: false;
+	}
+
+	public function isMobile()
+	{
+		return $this->domain->isMobile()
+			? $this->mapper('Mobile Web')
+			: false;
+	}
+
+	public function isMobileApp()
+	{
+		return $this->domain->isMobileApp()
+			? $this->mapper('Mobile App')
+			: false;
+	}
+
+	public function isBot()
+	{
+		return $this->domain->isBot()
+			? $this->mapper('Bot')
+			: false;
+	}
 }
