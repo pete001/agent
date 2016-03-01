@@ -7,6 +7,8 @@ abstract class AbstractDomain implements DomainInterface
 {
 	const UNKNOWN = 'Unknown';
 
+	const UNKNOWN_ID = 1;
+
 	protected $map;
 
 	public function __construct(Array $refs)
@@ -25,7 +27,7 @@ abstract class AbstractDomain implements DomainInterface
 	{
 		return array_key_exists(self::UNKNOWN, $this->map)
 			? $this->map[self::UNKNOWN]
-			: 0;
+			: self::UNKNOWN_ID;
 	}
 
 	abstract public function getDomain();

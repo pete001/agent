@@ -19,7 +19,7 @@ class DeviceDetectorAdaptor extends AbstractDomain
 	public function isDesktop()
 	{
 		return $this->domain->isDesktop()
-			? $this->mapper('Desktop')
+			? $this->mapper('Desktop Web')
 			: false;
 	}
 
