@@ -5,14 +5,31 @@
  */
 class DomainController extends AbstractController
 {
+	/**
+	 * The domain interface
+	 *
+	 * @var DomainInterface
+	 */
 	protected $domain;
 
+	/**
+	 * Intialise the controller
+	 *
+	 * @param DomainInterface $domain The relevant adaptor
+	 *
+	 * @param Array           $map    The custom domain map
+	 */
 	public function __construct(DomainInterface $domain, Array $map)
 	{
 		$this->domain = $domain;
 		$this->setMap($map);
 	}
 
+	/**
+	 * Check if its a desktop
+	 *
+	 * @return Mixed Integer|False Id if it is, false if not
+	 */
 	public function isDesktop()
 	{
 		return $this->domain->isDesktop()
@@ -20,6 +37,11 @@ class DomainController extends AbstractController
 			: false;
 	}
 
+	/**
+	 * Check if its mobile web
+	 *
+	 * @return Mixed Integer|False Id if it is, false if not
+	 */
 	public function isMobile()
 	{
 		return $this->domain->isMobile()
@@ -27,6 +49,11 @@ class DomainController extends AbstractController
 			: false;
 	}
 
+	/**
+	 * Check if its a mobile app
+	 *
+	 * @return Mixed Integer|False Id if it is, false if not
+	 */
 	public function isMobileApp()
 	{
 		return $this->domain->isMobileApp()
@@ -34,6 +61,11 @@ class DomainController extends AbstractController
 			: false;
 	}
 
+	/**
+	 * Check if its a bot
+	 *
+	 * @return Mixed Integer|False Id if it is, false if not
+	 */
 	public function isBot()
 	{
 		return $this->domain->isBot()
@@ -41,6 +73,11 @@ class DomainController extends AbstractController
 			: false;
 	}
 
+	/**
+	 * Helper to return what the domain is if its not a bot
+	 *
+	 * @return Mixed Integer The relevant id
+	 */
 	public function getDomain()
 	{
 		if ($result = $this->isMobileApp())
