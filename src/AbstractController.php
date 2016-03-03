@@ -3,18 +3,17 @@
 /**
  * Abstract class to handle mapping
  */
-abstract class AbstractDomain implements DomainInterface
+abstract class AbstractController
 {
 	const UNKNOWN = 'Unknown';
-
 	const UNKNOWN_ID = 1;
 
-	protected $map;
+	const DESKTOP = 'Desktop Web';
+	const MOBILE = 'Mobile Web';
+	const MOBILEAPP = 'Mobile App';
+	const BOT = 'Bot';
 
-	public function __construct(Array $refs)
-	{
-		$this->map = $refs;
-	}
+	protected $map;
 
 	protected function mapper($domain)
 	{
@@ -28,6 +27,11 @@ abstract class AbstractDomain implements DomainInterface
 		return array_key_exists(self::UNKNOWN, $this->map)
 			? $this->map[self::UNKNOWN]
 			: self::UNKNOWN_ID;
+	}
+
+	public function setMap(Array $map)
+	{
+		return $this->map = $map;
 	}
 
 	abstract public function getDomain();
