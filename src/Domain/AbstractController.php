@@ -1,4 +1,4 @@
-<?php namespace Pete001\Agent;
+<?php namespace Pete001\Agent\Domain;
 
 /**
  * Abstract class to handle mapping

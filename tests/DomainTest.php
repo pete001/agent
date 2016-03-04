@@ -1,11 +1,11 @@
 <?php
 
-use Pete001\Agent\DomainController;
-use Pete001\Agent\Adaptors\DeviceDetectorAdaptor;
+use Pete001\Agent\Domain\DomainController;
+use Pete001\Agent\Domain\Adaptors\DeviceDetectorAdaptor;
 use DeviceDetector\DeviceDetector;
 use \Mockery as m;
 
-class DeviceDetectorTest extends PHPUnit_Framework_TestCase
+class DomainTest extends PHPUnit_Framework_TestCase
 {
     protected $map = ['Desktop Web' => 1, 'Mobile Web' => 2, 'Mobile App' => 3, 'Bot' => 4, 'Unknown' => 5];
     protected $agent = 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_3) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/48.0.2564.116 Safari/537.36';
@@ -22,7 +22,7 @@ class DeviceDetectorTest extends PHPUnit_Framework_TestCase
             $this->map
         );
 
-        $this->assertInstanceOf('Pete001\Agent\DomainController', $domain);
+        $this->assertInstanceOf('Pete001\Agent\Domain\DomainController', $domain);
     }
 
     public function booleanProvider()
@@ -45,7 +45,7 @@ class DeviceDetectorTest extends PHPUnit_Framework_TestCase
     public function testIsMethods($method, $return, $result)
     {
         $deviceDetector = m::mock('DeviceDetector\DeviceDetector');
-        $deviceDetector->shouldReceive('parse')
+        $deviceDetector->shouldReceive('parse','discardBotInformation')
             ->once()
             ->shouldReceive($method)
             ->once()
@@ -63,7 +63,7 @@ class DeviceDetectorTest extends PHPUnit_Framework_TestCase
     public function testUnknownMap()
     {
         $deviceDetector = m::mock('DeviceDetector\DeviceDetector');
-        $deviceDetector->shouldReceive('parse')
+        $deviceDetector->shouldReceive('parse','discardBotInformation')
             ->once()
             ->shouldReceive('isDesktop')
             ->once()
@@ -81,7 +81,7 @@ class DeviceDetectorTest extends PHPUnit_Framework_TestCase
     public function testGetDomainMobileApp()
     {
         $deviceDetector = m::mock('DeviceDetector\DeviceDetector');
-        $deviceDetector->shouldReceive('parse')
+        $deviceDetector->shouldReceive('parse','discardBotInformation')
             ->once()
             ->shouldReceive('isMobileApp')
             ->once()
@@ -99,7 +99,7 @@ class DeviceDetectorTest extends PHPUnit_Framework_TestCase
     public function testGetDomainMobileWeb()
     {
         $deviceDetector = m::mock('DeviceDetector\DeviceDetector');
-        $deviceDetector->shouldReceive('parse')
+        $deviceDetector->shouldReceive('parse','discardBotInformation')
             ->once()
             ->shouldReceive('isMobileApp')
             ->once()
@@ -120,7 +120,7 @@ class DeviceDetectorTest extends PHPUnit_Framework_TestCase
     public function testGetDomainDesktop()
     {
         $deviceDetector = m::mock('DeviceDetector\DeviceDetector');
-        $deviceDetector->shouldReceive('parse')
+        $deviceDetector->shouldReceive('parse','discardBotInformation')
             ->once()
             ->shouldReceive('isMobileApp')
             ->once()
@@ -144,7 +144,7 @@ class DeviceDetectorTest extends PHPUnit_Framework_TestCase
     public function testGetDomainFail()
     {
         $deviceDetector = m::mock('DeviceDetector\DeviceDetector');
-        $deviceDetector->shouldReceive('parse')
+        $deviceDetector->shouldReceive('parse','discardBotInformation')
             ->once()
             ->shouldReceive('isMobileApp')
             ->once()

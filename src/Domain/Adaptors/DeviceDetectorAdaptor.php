@@ -1,6 +1,6 @@
-<?php namespace Pete001\Agent\Adaptors;
+<?php namespace Pete001\Agent\Domain\Adaptors;
 
-use Pete001\Agent\DomainInterface;
+use Pete001\Agent\Domain\DomainInterface;
 use DeviceDetector\DeviceDetector;
 
 /**
@@ -23,6 +23,7 @@ class DeviceDetectorAdaptor implements DomainInterface
 	public function __construct(DeviceDetector $domain)
 	{
 		$this->domain = $domain;
+		$this->domain->discardBotInformation();
 		$this->domain->parse();
 	}
 

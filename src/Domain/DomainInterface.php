@@ -1,4 +1,4 @@
-<?php namespace Pete001\Agent;
+<?php namespace Pete001\Agent\Domain;
 
 /**
  * Generic interface for domain decoding

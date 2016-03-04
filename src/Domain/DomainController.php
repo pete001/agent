@@ -1,4 +1,4 @@
-<?php namespace Pete001\Agent;
+<?php namespace Pete001\Agent\Domain;
 
 /**
  * Generic domain controller
