@@ -7,6 +7,13 @@ abstract class AbstractController
 {
 	const UNKNOWN = 'unknown';
 
+	/**
+	 * String cleaning for the returns
+	 *
+	 * @param String|Null $string What to clean
+	 *
+	 * @return String
+	 */
 	public function clean_string($string)
 	{
 		return null === $string

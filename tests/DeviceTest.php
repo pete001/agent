@@ -24,7 +24,7 @@ class DeviceTest extends PHPUnit_Framework_TestCase
             new DeviceDetectorAdaptor(new DeviceDetector)
         );
 
-        $this->assertInstanceOf('Pete001\Agent\Device\DeviceController', $device);
+        $this->assertInstanceOf(DeviceController::class, $device);
     }
 
     public function booleanProvider()
@@ -41,7 +41,7 @@ class DeviceTest extends PHPUnit_Framework_TestCase
      */
     public function testSimpleControllerMethods($method, $return, $result)
     {
-        $deviceDetector = m::mock('DeviceDetector\DeviceDetector');
+        $deviceDetector = m::mock(DeviceDetector::class);
         $deviceDetector->shouldReceive('parse','discardBotInformation')
             ->once()
             ->shouldReceive($method)
@@ -58,7 +58,7 @@ class DeviceTest extends PHPUnit_Framework_TestCase
 
     public function testGetDevice()
     {
-        $deviceDetector = m::mock('DeviceDetector\DeviceDetector');
+        $deviceDetector = m::mock(DeviceDetector::class);
         $deviceDetector->shouldReceive('parse','discardBotInformation')
             ->once()
             ->shouldReceive('getBrand')
@@ -78,7 +78,7 @@ class DeviceTest extends PHPUnit_Framework_TestCase
 
     public function testGetBrowser()
     {
-        $deviceDetector = m::mock('DeviceDetector\DeviceDetector');
+        $deviceDetector = m::mock(DeviceDetector::class);
         $deviceDetector->shouldReceive('parse','discardBotInformation')
             ->once()
             ->shouldReceive('getClient')
@@ -95,7 +95,7 @@ class DeviceTest extends PHPUnit_Framework_TestCase
 
     public function testGetCategoryDesktop()
     {
-        $deviceDetector = m::mock('DeviceDetector\DeviceDetector');
+        $deviceDetector = m::mock(DeviceDetector::class);
         $deviceDetector->shouldReceive('parse','discardBotInformation')
             ->once()
             ->shouldReceive('isDesktop')
@@ -112,7 +112,7 @@ class DeviceTest extends PHPUnit_Framework_TestCase
 
     public function testGetCategoryTablet()
     {
-        $deviceDetector = m::mock('DeviceDetector\DeviceDetector');
+        $deviceDetector = m::mock(DeviceDetector::class);
         $deviceDetector->shouldReceive('parse','discardBotInformation')
             ->once()
             ->shouldReceive('isDesktop')
@@ -135,7 +135,7 @@ class DeviceTest extends PHPUnit_Framework_TestCase
 
     public function testGetCategoryMobile()
     {
-        $deviceDetector = m::mock('DeviceDetector\DeviceDetector');
+        $deviceDetector = m::mock(DeviceDetector::class);
         $deviceDetector->shouldReceive('parse','discardBotInformation')
             ->once()
             ->shouldReceive('isDesktop')
@@ -158,7 +158,7 @@ class DeviceTest extends PHPUnit_Framework_TestCase
 
     public function testGetCategoryFail()
     {
-        $deviceDetector = m::mock('DeviceDetector\DeviceDetector');
+        $deviceDetector = m::mock(DeviceDetector::class);
         $deviceDetector->shouldReceive('parse','discardBotInformation')
             ->once()
             ->shouldReceive('isDesktop')
